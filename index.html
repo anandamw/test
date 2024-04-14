@@ -1,0 +1,298 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+</head>
+
+<body>
+    <!-- banner  -->
+    <div id="sticky-banner" tabindex="-1"
+        class="fixed top-0 start-0 z-50 flex justify-between w-full p-4 border-b border-gray-200 bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+        <div class="flex items-center mx-auto">
+            <p class="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400">
+                <span
+                    class="inline-flex p-1 me-3 bg-gray-200 rounded-full dark:bg-gray-600 w-6 h-6 items-center justify-center flex-shrink-0">
+                    <svg class="w-3 h-3 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">
+                        <path
+                            d="M15 1.943v12.114a1 1 0 0 1-1.581.814L8 11V5l5.419-3.871A1 1 0 0 1 15 1.943ZM7 4H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2v5a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2V4ZM4 17v-5h1v5H4ZM16 5.183v5.634a2.984 2.984 0 0 0 0-5.634Z" />
+                    </svg>
+                    <span class="sr-only">Light bulb</span>
+                </span>
+                <span>
+                    "Selamat Datang! Kami menyediakan website resmi untuk pemesanan tiket konser mendatang. Jangan lupa
+                    untuk menghadirinya!"
+                    {{-- <a href="https://flowbite.com"
+                        class="inline font-medium text-blue-600 underline dark:text-blue-500 underline-offset-2 decoration-600 dark:decoration-500 decoration-solid hover:no-underline">Flowbite
+                        Library</a></span> --}}
+            </p>
+        </div>
+        <div class="flex items-center">
+            <button data-dismiss-target="#sticky-banner" type="button"
+                class="flex-shrink-0 inline-flex justify-center w-7 h-7 items-center text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 dark:hover:bg-gray-600 dark:hover:text-black">
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                </svg>
+                <span class="sr-only">Close banner</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- main  -->
+    <div class="h-screen brightness-100 w-full bg-cover  bg-no-repeat bg-center  flex items-center justify-center gap-4 flex-col text-black"
+        >
+        <h1 class="text-4xl text-center text-black">Sounds In The City Festivals</h1>
+        <h4 class="w-3/4  text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
+
+        <div class="flex items-center justify-center gap-6 mt-8">
+            <div class="text-center">
+                <div class="text-sm">11 Mei 2024</div>
+                <div class="text-sm">19:00 - Selesai</div>
+            </div>
+            <a href="#"
+                class="bg-white border-black border hover:bg-black hover:text-white transition-all ease-in text-black font-bold py-1 px-3 rounded-full ">
+                Buy Ticket</a>
+        </div>
+
+        <div class="flex gap-4 mt-20 text-center">
+            <div>
+                <div id="days"></div>
+                <span class="font-bold">Days</span>
+            </div>
+            <div class="">
+                <div id="hours"></div>
+                <span class="font-bold">Hours</span>
+            </div>
+            <div class="">
+                <div id="minutes"></div>
+                <span class="font-bold">Minutes</span>
+            </div>
+            <div class="">
+                <div id="seconds"></div>
+                <span class="font-bold">Seconds</span>
+            </div>
+        </div>
+    </div>
+
+    <div class=" h-screen w-full flex  justify-center">
+
+        <div class="w-[90%] flex flex-col gap-7">
+            <div class="">
+                <h3 class="font-bold ">--Ticket Section</h3>
+                <h1 class="text-xl italic font-extrabold">Ayo Segera dapatkan tiketmu!</h1>
+                <h2 class="text-xl">Jangan lewatkan kesempatan untuk menjadi bagian dari acara ini</h2>
+            </div>
+
+            <div>
+                <div class="w-full gap-5 flex items-center justify-center ">
+                    <div class="w-[50%]">
+                        <div id="radio1Container"
+                            class="border border-black hover:bg-black hover:text-white py-1 px-2 rounded-t-xl cursor-pointer">
+                            <input type="radio" class="hidden" name="ticket" id="radio1" value="option1" />
+                            <label class="flex items-center justify-between py-2 px-2" for="radio1">
+                                <span>Ekonomi</span><span>50K</span>
+                            </label>
+                        </div>
+                        <div id="radio2Container"
+                            class="border border-black hover:bg-black hover:text-white py-1 px-2 rounded-b-xl cursor-pointer">
+                            <input type="radio" class="hidden" name="ticket" id="radio2" value="option2" />
+                            <label class="flex items-center justify-between py-2 px-2" for="radio2">
+                                <span>VIP</span><span>100K</span>
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <div class="flex w-[40%] flex-col gap-2">
+                        <div class="flex items-center justify-center">
+                            <button id="minusBtn"
+                                class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l">
+                                -
+                            </button>
+                            <input id="quantityInput" type="text"
+                                class="w-16 text-center py-2 border-gray-300 border-t border-b border-l focus:outline-none focus:border-indigo-500 bg-white "
+                                value="0">
+                            <button id="plusBtn"
+                                class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r">
+                                +
+                            </button>
+                        </div>
+
+                        <button type="submit"
+                            class="bg-black font-bold border hover:border-black hover:bg-white hover:text-black transition-all ease-in text-white rounded-md py-2">Beli
+                            Ticket</button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- btn sidebar  -->
+    <div data-dial-init class="fixed end-6 bottom-6 group">
+        <div id="speed-dial-menu-bottom-right" class="flex flex-col items-center hidden mb-4 space-y-2">
+           
+            
+            <button type="button" data-tooltip-target="tooltip-download" data-tooltip-placement="left"
+                class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                    viewBox="0 0 20 20">
+                    <path
+                        d="M14.707 7.793a1 1 0 0 0-1.414 0L11 10.086V1.5a1 1 0 0 0-2 0v8.586L6.707 7.793a1 1 0 1 0-1.414 1.414l4 4a1 1 0 0 0 1.416 0l4-4a1 1 0 0 0-.002-1.414Z" />
+                    <path
+                        d="M18 12h-2.55l-2.975 2.975a3.5 3.5 0 0 1-4.95 0L4.55 12H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2Zm-3 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" />
+                </svg>
+                <span class="sr-only">Hubungi Kami</span>
+            </button>
+            <div id="tooltip-download" role="tooltip"
+                class="absolute z-10 invisible inline-block w-auto px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                Hubungi Kami
+                <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+            <button type="button" data-tooltip-target="tooltip-copy" data-tooltip-placement="left"
+                class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 dark:hover:text-white shadow-sm dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                    viewBox="0 0 18 20">
+                    <path
+                        d="M5 9V4.13a2.96 2.96 0 0 0-1.293.749L.879 7.707A2.96 2.96 0 0 0 .13 9H5Zm11.066-9H9.829a2.98 2.98 0 0 0-2.122.879L7 1.584A.987.987 0 0 0 6.766 2h4.3A3.972 3.972 0 0 1 15 6v10h1.066A1.97 1.97 0 0 0 18 14V2a1.97 1.97 0 0 0-1.934-2Z" />
+                    <path
+                        d="M11.066 4H7v5a2 2 0 0 1-2 2H0v7a1.969 1.969 0 0 0 1.933 2h9.133A1.97 1.97 0 0 0 13 18V6a1.97 1.97 0 0 0-1.934-2Z" />
+                </svg>
+                <span class="sr-only">Deskripsi</span>
+            </button>
+            <div id="tooltip-copy" role="tooltip"
+                class="absolute z-10 invisible inline-block w-auto px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                Deskripsi
+                <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+        </div>
+        <button type="button" data-dial-toggle="speed-dial-menu-bottom-right"
+            aria-controls="speed-dial-menu-bottom-right" aria-expanded="false"
+            class="flex items-center justify-center text-white bg-blue-700 rounded-full w-14 h-14 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800">
+            <svg class="w-5 h-5 transition-transform group-hover:rotate-45" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 1v16M1 9h16" />
+            </svg>
+            <span class="sr-only">Open actions menu</span>
+        </button>
+    </div>
+
+
+
+    <script>
+        const radio1Container = document.getElementById('radio1Container');
+        const radio2Container = document.getElementById('radio2Container');
+        const radio1 = document.getElementById('radio1');
+        const radio2 = document.getElementById('radio2');
+
+        // Event listener untuk radio 1
+        radio1.addEventListener('click', () => {
+            radio1Container.classList.add('bg-black', 'text-white');
+            radio2Container.classList.remove('bg-black', 'text-white');
+        });
+
+        // Event listener untuk radio 2
+        radio2.addEventListener('click', () => {
+            radio2Container.classList.add('bg-black', 'text-white');
+            radio1Container.classList.remove('bg-black', 'text-white');
+        });
+    </script>
+
+
+    <script>
+        const quantityInput = document.getElementById('quantityInput');
+        const minusBtn = document.getElementById('minusBtn');
+        const plusBtn = document.getElementById('plusBtn');
+
+        // Fungsi untuk mengurangi nilai
+        minusBtn.addEventListener('click', () => {
+            let value = parseInt(quantityInput.value);
+            value = isNaN(value) ? 0 : value;
+            value = value <= 0 ? 0 : value - 1;
+            quantityInput.value = value;
+        });
+
+        // Fungsi untuk menambah nilai
+        plusBtn.addEventListener('click', () => {
+            let value = parseInt(quantityInput.value);
+            value = isNaN(value) ? 0 : value;
+            value += 1;
+            quantityInput.value = value;
+        });
+    </script>
+
+
+
+
+    <script>
+        function updateCountdown() {
+            const targetDate = new Date("2024-05-11T00:00:00"); // Tentukan tanggal target di sini
+            const now = new Date();
+            const timeDifference = targetDate - now;
+
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = days;
+            document.getElementById("hours").textContent = hours;
+            document.getElementById("minutes").textContent = minutes;
+            document.getElementById("seconds").textContent = seconds;
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+
+</html>
